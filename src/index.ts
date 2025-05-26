@@ -7,11 +7,19 @@ interface User {
     email:string;
     phone:string;
     website:string;
-    comapny:string;
+    comapny:{
+        name: string;
+        catchPhrase: string;
+        bs: string;
+    }
     address:{
         street:string;
         city:string;
         zicode:string;
+        geo:{
+            lat:string;
+            lng:string;
+        }
     }
 }
 
@@ -88,6 +96,22 @@ const fetchPosts = async (userId: number) => {
             const divContent = document.createElement('div');
             divContent.className = 'postAndImage';
             const liElement = document.createElement("li");
+
+            // creating reaction elements
+            const pComment = document.createElement("p");
+            const PShare = document.createElement('p')
+            const pLove = document.createElement('p')
+            pComment.textContent = '200';
+            PShare.textContent = '200';
+            pLove.textContent = '200';
+
+            // create div to hold reaction elements
+            const divReaction = document.createElement('div');
+            divReaction.className = 'reactionDiv';
+            divReaction.appendChild(pComment);
+            divReaction.appendChild(PShare);
+            divReaction.appendChild(pLove);
+
             const imageElement = document.createElement("img");
             imageElement.src = "./images/jonajack.jpg";
             liElement.textContent = post.title;
@@ -97,6 +121,7 @@ const fetchPosts = async (userId: number) => {
             divContent.appendChild(imageElement);
             divContent.appendChild(liElement);
             postDisplay.appendChild(divContent);
+            postDisplay.appendChild(divReaction);
             
         });
 
