@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>X.com</title>
+</head>
+<body>
+
+    <div class="container">
+        <!-- header -->
+        <div class="header">
+             <h1>Twitter Clone</h1>
+             <div class="users">
+                <label for="selectUser">Select User</label>
+                <select name="user" id="user"></select>
+             </div>
+        </div>
+
+        <div class="imageDisplay"></div>
+        <div class="image">
+            <img src="/src/images/jonajack.jpg" alt="">
+            <!-- where to display user details -->
+            <div class="details">
+                <ul id="userDetails"></ul>
+            </div>
+        </div>
+    
+        <div class="postComments">
+            <!-- user posts -->
+            <!-- <h1>Your Posts</h1> -->
+             <div class="posts">
+               <ul id="userPosts"></ul>
+             </div>
+       
+             <!-- comments section -->
+             <div class="comments">
+               <h1>Comments on post</h1>
+               <ul id="ListComments"></ul>
+             </div>
+        </div>
+    </div>
+
+      <script src="/dist/index.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+}
+.container > .header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1da1f2;
+    color: #fff;
+    padding: 2rem;
+}
+.container > .header > .users{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.container > .header > .users > #user{
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    padding: 10px;
+}
+.container > .imageDisplay{
+    height: 8rem;
+    background:linear-gradient(to right,#060b21,#90006b);
+}
+.container > .image{
+    margin-top: -4rem;
+    img{
+        width: 10rem;
+        height: 10rem;
+        border-radius: 100%;
+        margin-left: 2rem;
+    }
+    .details{
+        margin: 1rem 2rem;
+        display: flex;
+        flex-direction: column;
+        padding: 5px 10px;
+    }
+    .details > #userDetails{
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        background: #fafafa;
+        
+    }
+    li{
+        list-style-type: none;
+    }
+}
+
+.container > .postComments{
+    display: flex;
+    margin: 3rem;
+    justify-content: space-between;
+}
+.container > .postComments > .posts{
+    display: flex;
+    gap: 1rem;
+}
+.container > .postComments > .posts > h1{
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+}
+.container > .postComments > .posts > #userPosts{
+    display: flex;
+    flex-direction: column;
+}
+.container > .postComments > .posts > #userPosts > li{
+    list-style: none;
+}
+
+.postAndImage{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.postAndImage > li{
+    list-style: none;
+}
+.postAndImage > img{
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+}
+.commentAndImage{
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.commentAndImage > img{
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+}
