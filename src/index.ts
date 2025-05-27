@@ -1,5 +1,5 @@
-// Define the interface for user, posts, comments
 
+// Define the interface for user, posts, comments
 interface User {
     id: number;
     name:string;
@@ -38,7 +38,6 @@ interface Comment {
     body: string;
 }
 
-
 // Select DOM elements
 const userDisplay = document.getElementById("user") as HTMLSelectElement;
 const postDisplay = document.getElementById("userPosts") as HTMLUListElement;
@@ -56,7 +55,6 @@ const fetchUsers = async () => {
             optionElement.value = user.id.toString();
             optionElement.textContent = user.name;
             userDisplay.appendChild(optionElement);
-
         });
     }
     userDisplay.value = '1';
@@ -64,7 +62,7 @@ const fetchUsers = async () => {
     displayUserDetails(1 ,userData);
 };
 
-// display userDetails
+// async function to display userDetails
 const displayUserDetails = (userId:number, users:User[]) =>{
     const user = users.find(u => u.id === userId)
     if(user){
@@ -99,8 +97,26 @@ const fetchPosts = async (userId: number) => {
 
             // creating reaction elements
             const pComment = document.createElement("p");
-            const PShare = document.createElement('p')
-            const pLove = document.createElement('p')
+            const PShare = document.createElement('p');
+            const pLove = document.createElement('p');
+
+            // create a hr element
+            const hr = document.createElement('hr');
+
+
+            const iLove = document.createElement('i');
+            iLove.className = 'bx bxs-heart';
+            iLove.style.color = 'red'
+
+            const iComment = document.createElement('i');
+            iComment.className = 'bx bxs-comment';
+            iComment.style.color = 'blue'
+
+            const iShare = document.createElement('i');
+            iShare.className = 'bx bxs-share-alt';
+            iShare.style.color = 'green'
+
+
             pComment.textContent = '200';
             PShare.textContent = '200';
             pLove.textContent = '200';
@@ -108,13 +124,16 @@ const fetchPosts = async (userId: number) => {
             // create div to hold reaction elements
             const divReaction = document.createElement('div');
             divReaction.className = 'reactionDiv';
+            divReaction.appendChild(iComment)
             divReaction.appendChild(pComment);
+            divReaction.appendChild(iShare);
             divReaction.appendChild(PShare);
+            divReaction.appendChild(iLove);
             divReaction.appendChild(pLove);
 
             const imageElement = document.createElement("img");
             imageElement.src = "./images/jonajack.jpg";
-            liElement.textContent = post.title;
+            liElement.textContent = post.body;
             liElement.addEventListener("click", () => {
                 fetchComments(post.id);
             });
@@ -122,9 +141,9 @@ const fetchPosts = async (userId: number) => {
             divContent.appendChild(liElement);
             postDisplay.appendChild(divContent);
             postDisplay.appendChild(divReaction);
+            postDisplay.appendChild(hr);
             
         });
-
         if (postData.length > 0) {
             fetchComments(postData[0].id);
         }
@@ -139,14 +158,47 @@ const fetchComments = async (postId: number) => {
         commentDisplay.innerHTML = '';
         commentData.forEach((comment) => {
             const divComment = document.createElement('div');
+
+            const reactDiv = document.createElement('div');
+            reactDiv.className = 'reactions'
+            const msgP = document.createElement('p');
+            const loveP = document.createElement('p');
+            const shareP = document.createElement('p');
+            const hr = document.createElement('hr');
+
+            const love = document.createElement('i');
+            love.className = 'bx bxs-heart';
+            love.style.color = 'red'
+            const repost = document.createElement('i');
+            repost.className = 'bx bxs-share';
+            repost.style.color = 'blue'
+            const msgcomment = document.createElement('i');
+            msgcomment.className = 'bx bxs-comment';
+            msgcomment.style.color = 'blue';
+
+            // add textcontent to the ps
+            msgP.textContent = '0';
+            loveP.textContent = '0';
+            shareP.textContent = '0';
+
+            // append to the reaction div
+            reactDiv.appendChild(msgP);
+            reactDiv.appendChild(msgP);
+            reactDiv.appendChild(repost)
+            reactDiv.appendChild(loveP);
+            reactDiv.appendChild(love);
+            reactDiv.appendChild(shareP);
+
             divComment.className = 'commentAndImage';
             const li = document.createElement("li");
             const imageElement = document.createElement("img");
             imageElement.src = "./images/jonajack.jpg";
-            li.innerHTML = `<strong>${comment.email}</strong>: ${comment.body}`;
+            li.innerHTML = `${comment.email}: ${comment.body}`;
             divComment.appendChild(imageElement);
             divComment.appendChild(li);
             commentDisplay.appendChild(divComment);
+            commentDisplay.appendChild(reactDiv);
+            commentDisplay.appendChild(hr)
             
         });
     }

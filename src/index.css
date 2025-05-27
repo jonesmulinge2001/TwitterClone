@@ -12,17 +12,19 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    h1{
+        font-size: 16px;
+        margin-left: 3rem;
+    }
   }
   
-  /* Header */
+  /* Header section */
   .container > .header {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    justify-content: space-between;
     background-color: #1da1f2;
     color: #fff;
     padding: 1.5rem;
-    gap: 1rem;
   }
   
   .header .users {
@@ -31,7 +33,7 @@
     gap: 0.5rem;
   }
   
-  .header .users > #user {
+  .header > .users > #user {
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -39,10 +41,18 @@
     padding: 10px;
   }
   
-  /* Cover Image */
+  /* Cover Image section */
   .imageDisplay {
     height: 8rem;
+    margin-top: -1rem;
     background: linear-gradient(to right, #060b21, #90006b);
+  }
+  #userDetails{
+    display: flex;
+    flex-direction: column;
+    li{
+        list-style: none;
+    }
   }
   
   /* Profile Image and Details */
@@ -54,11 +64,12 @@
     text-align: center;
   }
   
-  .image img {
+  .image > img {
     width: 8rem;
     height: 8rem;
     border-radius: 100%;
     border: 4px solid #fff;
+    margin-top: -4rem;
   }
   
   .details {
@@ -69,13 +80,13 @@
     width: 90%;
   }
   
-  .details ul {
+  .details > ul {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
   }
   
-  .details li {
+  .details > li {
     list-style-type: none;
     font-size: 0.95rem;
   }
@@ -89,7 +100,7 @@
   }
   
   /* Posts */
-  .posts ul {
+  .posts > ul {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -99,21 +110,20 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    background: #f1f1f1;
+    /* background: #f1f1f1; */
     padding: 1rem;
     border-radius: 8px;
   }
   
-  .postAndImage img {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
+  .postAndImage > img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 10px;
   }
   
-  .postAndImage li {
+  .postAndImage > li {
     list-style: none;
     cursor: pointer;
-    font-weight: bold;
     flex: 1;
   }
   
@@ -121,7 +131,7 @@
     display: flex;
     gap: 1rem;
     padding-left: 6rem;
-    font-size: 0.9rem;
+    font-size: 16px;
     color: #555;
   }
   
@@ -149,15 +159,19 @@
   .commentAndImage img {
     width: 3.5rem;
     height: 3.5rem;
-    border-radius: 50%;
+    border-radius: 10px;
   }
   
   .commentAndImage li {
     list-style: none;
     font-size: 0.9rem;
   }
-  
-  /* Responsive Breakpoints */
+  .reactions{
+    display: flex;
+    gap: 2rem;
+    margin-left: 4rem;
+  }
+
   @media (min-width: 768px) {
     .header {
       flex-direction: row;
